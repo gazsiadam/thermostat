@@ -1,0 +1,13 @@
+.dashboard {
+  width: 100%;
+  height: 100%;
+}
+
+.last-measured-temperature {
+  background-image: url("/assets/house-outline.svg");
+  background-size: contain;
+  background-repeat: no-repeat;
+  font-size: 20px;
+  height: 130px;
+  width: 200px;
+}

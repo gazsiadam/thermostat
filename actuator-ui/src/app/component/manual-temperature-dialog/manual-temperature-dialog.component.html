@@ -1,0 +1,30 @@
+<h5 mat-dialog-title>Manual mode</h5>
+<mat-dialog-content>
+  <div fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="10px" style="padding-bottom: 3px">
+    <button mat-fab>
+      {{data.temperature}}
+    </button>
+    <div fxLayout="column" fxLayoutAlign="center center" fxLayoutGap="5px">
+      <button mat-raised-button
+              (touchstart)="increaseStart($event)"
+              (touchend)="stop(increaseHandler)"
+              (touchcancel)="stop(increaseHandler)"
+              (mousedown)="increaseStart($event)"
+              (mouseup)="stop(increaseHandler)">
+        +
+      </button>
+      <button mat-raised-button
+              (touchstart)="decreaseStart($event)"
+              (touchend)="stop(decreaseHandler)"
+              (touchcancel)="stop(decreaseHandler)"
+              (mousedown)="decreaseStart($event)"
+              (mouseup)="stop(decreaseHandler)">
+        -
+      </button>
+    </div>
+  </div>
+</mat-dialog-content>
+<mat-dialog-actions align="center">
+  <button mat-button mat-dialog-close>Cancel</button>
+  <button mat-button [mat-dialog-close]="data" cdkFocusInitial>Ok</button>
+</mat-dialog-actions>

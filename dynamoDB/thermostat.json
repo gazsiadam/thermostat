@@ -1,0 +1,35 @@
+{
+  "ModelName": "Smarthome",
+  "ModelMetadata": {
+    "Author": "Gazsi Adam",
+    "DateCreated": "Oct 19, 2020, 11:01 PM",
+    "DateLastModified": "Nov 10, 2020, 11:05 PM",
+    "Description": "",
+    "Version": "2.0",
+    "AWSService": "Amazon DynamoDB"
+  },
+  "DataModel": [
+    {
+      "TableName": "thermostat_log",
+      "KeyAttributes": {
+        "PartitionKey": {
+          "AttributeName": "date",
+          "AttributeType": "S"
+        },
+        "SortKey": {
+          "AttributeName": "log_type",
+          "AttributeType": "S"
+        }
+      },
+      "NonKeyAttributes": [
+        {
+          "AttributeName": "data",
+          "AttributeType": "S"
+        }
+      ],
+      "DataAccess": {
+        "MySql": {}
+      }
+    }
+  ]
+}

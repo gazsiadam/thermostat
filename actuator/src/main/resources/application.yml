@@ -1,0 +1,24 @@
+server:
+  port: 8082
+
+spring:
+  main:
+    banner-mode: off
+
+thermostat:
+  temperature:
+    sensor.callibration: -0.7 # if the sensor is off by x degrees, you can specify an offset, ex: sensor reads 20.3 degrees, but it's actually 21 degreees in the room, you can specify a +0.7 offset.
+
+
+
+# dynamoDB
+aws:
+  dynamodb:
+    enabled: false
+    region: us-west-2
+    endpoint: http://localhost:8000
+    environment: thermostat
+
+openwathermap:
+  enable: false
+  api-key: <YOUR-API-KEY>

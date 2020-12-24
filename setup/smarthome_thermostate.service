@@ -1,0 +1,11 @@
+[Unit]
+Description=SmartHome - Thermostat service
+After=network.target
+
+[Service]
+ExecStart=/usr/bin/java -jar -agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=*:6005 -Dspring.config.location=/home/pi/smarthome/application.yml /home/pi/smarthome/actuator.jar
+User=pi
+Restart=always
+
+[Install]
+WantedBy=multi-user.target

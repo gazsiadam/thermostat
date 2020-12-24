@@ -1,0 +1,30 @@
+<mat-tab-group #tabGroup
+               headerPosition="below"
+               mat-align-tabs="center"
+               (swipeleft)="swipeLeft(tabGroup)"
+               (swiperight)="swipeRight(tabGroup)">
+  <mat-tab>
+    <ng-template mat-tab-label>
+      <mat-icon>local_fire_department</mat-icon>
+    </ng-template>
+    <div class="tab-content">
+      <app-temperature></app-temperature>
+    </div>
+  </mat-tab>
+  <mat-tab>
+    <ng-template mat-tab-label>
+      <mat-icon>settings</mat-icon>
+    </ng-template>
+    <div class="tab-content">
+      Settings
+    </div>
+  </mat-tab>
+  <mat-tab>
+    <ng-template mat-tab-label>
+      <mat-icon>format_list_bulleted</mat-icon>
+    </ng-template>
+    <div class="tab-content">
+      <app-log></app-log>
+    </div>
+  </mat-tab>
+</mat-tab-group>

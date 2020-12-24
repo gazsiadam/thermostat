@@ -1,0 +1,65 @@
+plugins {
+    id 'org.springframework.boot' version '2.3.5.RELEASE'
+    id 'io.spring.dependency-management' version '1.0.10.RELEASE'
+    id 'java'
+}
+
+group = 'com.sh.thermostat'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '11'
+
+ext {
+    set('springCloudVersion', 'Greenwich.SR6')
+}
+
+
+configurations {
+    compileOnly {
+        extendsFrom annotationProcessor
+    }
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencyManagement {
+    imports {
+        mavenBom "org.springframework.cloud:spring-cloud-dependencies:${springCloudVersion}"
+    }
+}
+
+dependencies {
+    // Raspberry Pi
+    implementation 'com.pi4j:pi4j-core:1.2'
+
+    // Swagger UI
+    compile 'io.springfox:springfox-boot-starter:3.0.0'
+
+    // JSON
+    implementation 'org.json:json:20200518'
+
+    // Spring Boot
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+    implementation 'org.springframework.boot:spring-boot-starter-websocket'
+
+    // DynamoDB
+    compile 'com.amazonaws:aws-java-sdk-core:1.11.897'
+    compile 'com.amazonaws:aws-java-sdk-dynamodb:1.11.897'
+    compile 'com.github.derjust:spring-data-dynamodb:5.1.0'
+
+    // Testing
+    testImplementation('org.springframework.boot:spring-boot-starter-test') {
+        exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
+    }
+    testImplementation 'org.springframework.security:spring-security-test'
+
+    compileOnly 'org.projectlombok:lombok'
+    testCompileOnly 'org.projectlombok:lombok'
+    annotationProcessor 'org.projectlombok:lombok'
+    testAnnotationProcessor 'org.projectlombok:lombok'
+}
+
+test {
+    useJUnitPlatform()
+}

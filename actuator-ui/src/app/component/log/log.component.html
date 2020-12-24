@@ -1,0 +1,6 @@
+<div class="log">
+  <ng-container *ngFor="let log of logService.logs">
+    {{log.date | date: 'dd.MM.yy HH:mm'}} - {{log.logType}} : {{log.data}}
+    <hr>
+  </ng-container>
+</div>
